@@ -14,9 +14,13 @@ def main():
         print("I need a prompt!")
         sys.exit(1)
     prompt =  sys.argv[1]
+    # response = client.models.generate_content(model="gemini-2.0-flash-001",contents=prompt,)
+   
+    # print(response.text)
+    
     
     messages = [types.Content(role="user", parts=[types.Part(text=prompt)]),]
-    response = client.models.generate_content(model="gemini-2.0-flash-001",contents=messages)
+    response = client.models.generate_content(model="gemini-2.0-flash-001",contents=messages,)
     print(response.text)
     
     if response is None or response.usage_metadata is None: 
